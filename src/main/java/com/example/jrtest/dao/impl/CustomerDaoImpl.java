@@ -34,6 +34,7 @@ public class CustomerDaoImpl implements CustomerDao {
         pre.executeUpdate();
         ResultSet rs = pre.getGeneratedKeys();
         if(rs.next()){
+            pCustomer.id = rs.getLong(1);
             return "Created new customer with ID: "+ rs.getString(1);
         }else{
             return "Failed to create new customer";
